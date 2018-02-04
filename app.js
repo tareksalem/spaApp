@@ -11,7 +11,10 @@ var mimeTylpes = {
     ".png": "image/png",
     ".jpg": "image/jpg",
     ".jpeg": "image/jpeg",
-    ".json": "application/json"
+    ".json": "application/json",
+    ".txt": "text/plain",
+    ".ico": "image/faveicon"
+
 };
 function errorHandle(req, res) {
     if (res.statusCode == 402) {

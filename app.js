@@ -50,30 +50,9 @@ function render(req, res, file) {
     }
 }
 var server = http.createServer(function (req, res) {
-    if (req.headers.accept.indexOf("json") > -1) {
-        console.log("yes");
-    }
     if (req.url == "/") {
-        if (req.headers["xhttp"] == "ajax") {
-            res.end(JSON.stringify({"name": "tarek"}));
-        } else {
-            render(req, res, "home.html");
-        }
-    } else if (req.url.match(/.css$/) || req.url.match(/.js$/) || req.url.match(/.png$/) ||
-        req.url.match(/.jpg$/) || req.url.match(/.jpeg$/) || req.url.match(/.json$/)
-    ) {
-            staticFiles(req, res);
-
-    } else if (req.url.match(/.html$/)) {
-        var htmlSource = path.join(staticFolders.views, req.url);
-        var htmlStream = fs.createReadStream(htmlSource);
-        htmlStream.pipe(res);
-
-    } else {
-        res.statusCode = 404;
-        //res.end("not found");
+        res.end("hello");
     }
-    errorHandle(req, res);
 });
 
 server.listen(port);
